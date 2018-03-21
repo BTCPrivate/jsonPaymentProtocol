@@ -15,7 +15,8 @@ We support both callbacks and promises. For promises just add Async to the end o
 const JsonPaymentProtocol = require('json-payment-protocol');
 const paymentProtocol = new JsonPaymentProtocol();
 
-let requestUrl = 'bitcoin:?r=https://test.bitpay.com/i/Jr629pwsXKdTCneLyZja4t';
+// (Example; for original BitPay code it is 'bitcoin:')
+let requestUrl = 'bitcoinprivate:?r=https://test.bitpay.com/i/Jr629pwsXKdTCneLyZja4t';
 
 paymentProtocol.getRawPaymentRequest(requestUrl, function (err, response) {
   if (err) {
@@ -50,7 +51,7 @@ paymentProtocol.getRawPaymentRequest(requestUrl, function (err, response) {
 const JsonPaymentProtocol = require('json-payment-protocol');
 const paymentProtocol = new JsonPaymentProtocol();
 
-let requestUrl = 'bitcoin:?r=https://test.bitpay.com/i/Jr629pwsXKdTCneLyZja4t';
+let requestUrl = 'bitcoinprivate:?r=https://test.bitpay.com/i/Jr629pwsXKdTCneLyZja4t';
 paymentProtocol
   .getRawPaymentRequestAsync(requestUrl)
   .then((response) => {
@@ -59,7 +60,7 @@ paymentProtocol
   .then((paymentRequest) => {
     console.log('Payment request retrieved');
     console.log(paymentRequest);
-    
+
     //TODO: Create the rawTransaction and sign it in your wallet instead of this, do NOT broadcast yet
     let currency = 'BTC'
     let signedRawTransaction = '02000000010c2b0d60448d5cdfebe222014407bdb408b8427f837447484911efddea700323000000006a47304402201d3ed3117f1968c3b0a078f15f8462408c745ff555b173eff3dfe0a25e063c0c02200551572ec33d45ece8e64275970bd1b1694621f0ed8fac2f7e18095f170fe3fe012102d4edb773e3bd94e1251790f5cc543cbfa76c2b0abad14898674b1c4e27176ef2ffffffff02c44e0100000000001976a914dd826377dcf2075e5065713453cfad675ba9434f88aca070002a010000001976a914e7d0344ba970301e93cd7b505c7ae1b5bcf5639288ac00000000';
@@ -87,5 +88,4 @@ new JsonPaymentProtocol({
 ```
 
 ### URI Formats
-You can provide either the `bitcoin:?r=https://bitpay.com/i/invoice` format or `https://bitpay.com/i/invoice` directly.
-
+You can provide either the `bitcoinprivate:?r=https://bitpay.com/i/invoice` format or `https://bitpay.com/i/invoice` directly.

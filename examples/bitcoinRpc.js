@@ -8,12 +8,12 @@ const paymentProtocol = new JsonPaymentProtocol({strictSSL: false});
 
 let config = {
   network: 'test',
-  currency: 'BTC',
+  currency: 'BTCP',
   rpcServer: {
     username: 'fakeUser',
     password: 'fakePassword',
     ipAddress: '127.0.0.1',
-    port: '18332'
+    port: '17932'
   }
 };
 
